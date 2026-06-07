@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #080808;
+    color: #ffffff;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1db954;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-dna-card border border-dna-border rounded-2xl p-6;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-dna-accent/30 hover:bg-dna-surface;
+  }
+
+  .btn-primary {
+    @apply bg-dna-accent text-black font-semibold px-6 py-3 rounded-full
+           hover:bg-opacity-90 active:scale-95 transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-dna-surface border border-dna-border text-white font-medium px-6 py-3
+           rounded-full hover:border-dna-accent/50 active:scale-95 transition-all duration-150;
+  }
+
+  .dimension-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .stat-number {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  .label {
+    @apply text-xs font-medium text-dna-muted uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1db954, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px rgba(29, 185, 84, 0.15);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+  }
+
+  .border-gradient {
+    border: 1px solid;
+    border-image: linear-gradient(135deg, #1db954, #a855f7) 1;
+  }
+
+  .bg-shimmer {
+    background: linear-gradient(
+      90deg,
+      #161616 25%,
+      #1f1f1f 50%,
+      #161616 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
